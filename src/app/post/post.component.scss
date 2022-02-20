@@ -1,0 +1,23 @@
+@import "list/post-list.component.scss";
+
+.remove-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.textarea-size {
+  height: 120px;
+}
+
+.post-card-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.not-allowed {
+  cursor: not-allowed;
+}
+
+.post-card-footer button {
+  margin: 4px;
+}

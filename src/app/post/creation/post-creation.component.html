@@ -1,0 +1,44 @@
+<button type="button" class="btn btn-primary" (click)="open(modal)">+ Announce</button>
+
+<ng-template #modal let-close="close">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Publish announcement</h5>
+    <button type="button" class="btn-close" (click)="close()"></button>
+  </div>
+
+  <form [formGroup]="createPostFormGroup" (ngSubmit)="createAnnouncement()">
+
+    <div class="modal-body">
+      <div class="user-container">
+        <div class="mr-10">
+          <img src="assets/images/dog-avatar.png" width="40" alt="dog"/>
+        </div>
+        <div class="user-name">
+          John Doe
+        </div>
+      </div>
+
+      <div class="form-group mt-30">
+        <textarea type="text"
+                  class="form-control textarea-size"
+                  formControlName="announcement"
+                  placeholder="What are the details?"
+                  required>
+        </textarea>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+
+      <div [ngClass]="{ 'not-allowed': !createPostFormGroup.valid }">
+        <button type="submit"
+                class="btn btn-primary"
+                [disabled]="!createPostFormGroup.valid">Save changes</button>
+      </div>
+    </div>
+  </form>
+
+</ng-template>
+
+

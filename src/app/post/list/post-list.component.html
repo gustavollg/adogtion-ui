@@ -1,0 +1,44 @@
+<div class="post-creation">
+  <post-creation (postCreated)="onPostCreated($event)"></post-creation>
+</div>
+
+<div class="mt-30">
+  <div class="post-card" *ngIf="posts.length === 0; else announcement">
+    <div class="alert alert-warning mb-0" role="alert">
+      This blog currently does not contain announcements.
+    </div>
+  </div>
+</div>
+
+<ng-template #announcement>
+  <div class="post-card" *ngFor="let post of posts">
+    <div class="post-header">
+      <div class="user-container">
+        <div class="mr-10">
+          <img src="assets/images/dog-avatar.png" width="40" alt="dog"/>
+        </div>
+        <div class="user-name">
+          {{post.attributes.user}}
+        </div>
+      </div>
+
+      <div class="post-details">
+        <div class="date-container mr-10">{{post.attributes.createdAt | date: 'dd/MM/yyyy HH:mm'}}</div>
+          <fa-icon class="icon-button pen-icon"
+                   [routerLink]="'../p/' + post.id"
+                   [icon]="faPen"></fa-icon>
+          <fa-icon class="icon-button trash-icon"
+                 [icon]="faTrash"
+                 (click)="openPostRemovalConfirmationModal(removalConfirmationModal)"></fa-icon>
+      </div>
+    </div>
+
+    <div class="mt-15">
+      {{post.attributes.announcement}}
+    </div>
+
+    <post-removal-confirmation #removalConfirmationModal
+                               [postId]="post.id"
+                               (postRemoved)="onPostRemoved($event)"></post-removal-confirmation>
+  </div>
+</ng-template>

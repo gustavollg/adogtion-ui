@@ -1,0 +1,46 @@
+<div class="remove-button-container" *ngIf="post">
+  <button type="button"
+          class="btn btn-danger"
+          (click)="openPostRemovalConfirmationModal(removalConfirmationModal)">Remove announcement</button>
+
+  <post-removal-confirmation #removalConfirmationModal
+                             [postId]="post.id"
+                             (postRemoved)="onPostRemoved()"></post-removal-confirmation>
+</div>
+<div class="post-card mt-30" *ngIf="post">
+  <div class="post-header">
+    <div class="user-container">
+      <div class="mr-10">
+        <img src="assets/images/dog-avatar.png" width="40" alt="dog"/>
+      </div>
+      <div class="user-name">
+        {{post.attributes.user}}
+      </div>
+    </div>
+
+    <div class="date-container mr-10">{{post.attributes.createdAt | date: 'dd/MM/yyyy HH:mm'}}</div>
+  </div>
+
+  <form [formGroup]="updatePostFormGroup" (ngSubmit)="updateAnnouncement()">
+    <div class="mt-15">
+      <div class="form-group mt-30">
+        <textarea type="text"
+                  class="form-control textarea-size"
+                  formControlName="announcement"
+                  placeholder="What are the details?"
+                  required>
+        </textarea>
+      </div>
+    </div>
+
+    <div class="post-card-footer mt-30">
+      <button type="button" class="btn btn-secondary" routerLink="/">Go back</button>
+
+      <div [ngClass]="{ 'not-allowed': !updatePostFormGroup.valid }">
+        <button type="submit"
+                class="btn btn-primary"
+                [disabled]="!updatePostFormGroup.valid">Update changes</button>
+      </div>
+    </div>
+  </form>
+</div>
