@@ -1,4 +1,4 @@
-# A blog post application called adogtion-ui
+# A blog post application called Adogtion
 
 ### Important information
 1. I've chosen the Strapi CMS
