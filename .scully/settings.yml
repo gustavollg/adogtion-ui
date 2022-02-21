@@ -1,0 +1,11 @@
+identifier: k7zfv1v7p2zbh8ce
+appPort: 1864
+staticPort: 1668
+reloadPort: 2667
+hostName: localhost
+projectName: blog-post-app-ui
+homeFolder: D:\software_engineering\Projects\blog-post-app\adogtion-ui
+distFolder: dist/blog-post-app-ui
+outDir: D:\software_engineering\Projects\blog-post-app\adogtion-ui\dist\static
+handle404: ''
+allowErrorCollect: false

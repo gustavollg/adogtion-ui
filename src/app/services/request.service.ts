@@ -4,21 +4,28 @@ import { Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment';
 import { PostListResponse, PostResponse } from '../app.interface';
+import {TransferStateService} from "@scullyio/ng-lib";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequestService {
 
-  constructor(private readonly httpClient: HttpClient) {
+  constructor(private readonly httpClient: HttpClient, private transferStateService: TransferStateService) {
   }
 
   getPost(postId: string): Observable<PostResponse> {
-    return this.httpClient.get<PostResponse>(`${environment.apiUrl}/posts/${postId}`);
+    return this.transferStateService.useScullyTransferState(
+      'postId',
+      this.httpClient.get<PostResponse>(`${environment.apiUrl}/posts/${postId}`)
+    );
   }
 
   getPosts(): Observable<PostListResponse> {
-    return this.httpClient.get<PostListResponse>(`${environment.apiUrl}/posts`);
+    return this.transferStateService.useScullyTransferState(
+      'postList',
+      this.httpClient.get<PostListResponse>(`${environment.apiUrl}/posts`)
+    );
   }
 
   createPost(postInfo: PostResponse): Observable<PostResponse> {
