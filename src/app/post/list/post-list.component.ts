@@ -27,7 +27,7 @@ export class PostListComponent implements OnInit {
   }
 
   onPostCreated(post: Post) {
-    this.posts.push(post);
+    this.posts.unshift(post);
   }
 
   openPostRemovalConfirmationModal(removalConfirmationModal: PostRemovalConfirmationComponent) {
