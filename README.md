@@ -10,5 +10,5 @@
 ### Running the application
 1. Clone the git project: https://github.com/gustavollg/adogtion-ui.git
 2. In the project folder, run the command: npm install.
-3. Assuming the Strapi CMS project is already running -> In order to run the project without Scully serving the application, run the command: ng serve
+3. Assuming the Strapi CMS project is already running -> In order to run the project without Scully serving the application, run the command: npm run start
 4. Assuming the Strapi CMS project is already running -> In order to run the project with Scully serving the application, run the command "ng build" then "npx scully", and then "npx scully serve --"
