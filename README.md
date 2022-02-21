@@ -12,3 +12,6 @@
 2. In the project folder, run the command: npm install.
 3. Assuming the Strapi CMS project is already running -> In order to run the project without Scully serving the application, run the command: npm run start
 4. Assuming the Strapi CMS project is already running -> In order to run the project with Scully serving the application, run the command "ng build" then "npx scully", and then "npx scully serve --"
+
+### About the Application
+The application is simple and intuitive. As a "theme" for the blog, the blog is about publishing announcement regarding dog adoptions. As the requisites were written, is possible to add, edit and remove announcements/posts. When clicking in the pencil icon, in a post, it redirects to the route "p/${postIdentfier}", where is possible to edit and delete the post. The home page is the "/posts" route.
